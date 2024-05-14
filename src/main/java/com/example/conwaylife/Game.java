@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class Game extends Application {
-    public static int Height = 1000;
+    public static int Height = 800;
     public static int Width = Height;
     public static int WidthTotal = Width*5/4;
     public static int WidthPanel = Width/4;
@@ -116,7 +116,7 @@ public class Game extends Application {
                     }
                     gc.fillRect((int)(Game.Width) + i * cellSize, j * cellSize, cellSize, cellSize);
                     gc.setStroke(Color.LIGHTGREY);
-                    gc.setLineWidth((1.0 / 10) * Camera.zoom);
+                    gc.setLineWidth(1.0);
                     gc.strokeRect((int)(Game.Width) + i * cellSize, j * cellSize, cellSize, cellSize);
                 }
             }
@@ -229,11 +229,11 @@ public class Game extends Application {
                 if (keysPressed.contains(KeyCode.SPACE)) {
                     pause = !pause;
                 }
-                if (keysPressed.contains(KeyCode.UP)) {
-                    shapePanel.changeHeight(1);
-                }
-                if (keysPressed.contains(KeyCode.DOWN) && shapePanel.height > 1) {
+                if (keysPressed.contains(KeyCode.UP) && shapePanel.height > 1) {
                     shapePanel.changeHeight(-1);
+                }
+                if (keysPressed.contains(KeyCode.DOWN)) {
+                    shapePanel.changeHeight(1);
                 }
                 if (keysPressed.contains(KeyCode.RIGHT)) {
                     shapePanel.changeWidth(1);
